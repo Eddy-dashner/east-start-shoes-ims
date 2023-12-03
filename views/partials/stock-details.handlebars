@@ -1,0 +1,16 @@
+{{>stock-modal stock=stock}}
+<tr>
+  <th scope="row">{{count index}}</th>
+  <td>{{slot}}</td>
+  <td>{{quantity}}</td>
+  <td>{{user.username}}</td>
+  <td class="text-center">
+    <a
+      data-bs-toggle="modal"
+      href="#stockModalToggle{{id}}"
+      role="button"
+    >
+      <i class="fs-4 fa-solid fa-pen-to-square text-primary"></i>
+    </a>
+  </td>
+</tr>

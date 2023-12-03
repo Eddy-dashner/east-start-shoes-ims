@@ -1,0 +1,134 @@
+<div class="d-flex bg-light mb-2">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-12 col-md-6 my-4">
+                    <h2>{{ title }}</h2>
+                </div>
+                <div class="col-12 col-md-6 my-2">
+                    <form id="search-form" class="d-flex">
+                        <input id="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-primary" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Product Modal -->
+
+{{#if isProduct}}
+    {{>product-modal product}}
+    {{>supplier-modal product.supplier product_id=product.id}}
+{{/if}}
+
+<!-- Content -->
+<div class="container mt-3">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-4 mb-2">
+      <div class="card">
+            <div class="card-header position-relative">
+                {{#if isCategory}}
+            <h3>Categories</h3>
+                {{else}}
+                <h3>Product</h3>
+                    {{/if}}
+            <!-- edit category button -->
+            {{#if isCategory}}
+                <a class="category position-absolute">
+                </a>
+            {{else}}
+                <a class="category position-absolute" data-bs-toggle="modal" href="#productModalToggle" role="button">
+                    <i class="fs-4 fa-solid fa-pen-to-square text-primary"></i>
+                </a>
+            {{/if}}
+            </div>
+            <ul class="list-group list-group-flush">
+                {{#if isProduct}}
+                {{> product-details-by-id product}}
+                {{else}}
+            {{#each categories as |category|}}
+            {{> category-details category}}
+            {{/each}}
+                {{/if}}
+            </ul>
+      </div>
+    {{#if isProduct}}
+        <div class="card mt-2">
+            <div class="card-header position-relative">
+            <h3>Supplier</h3>
+            <a class="category position-absolute" data-bs-toggle="modal" href="#supplierModalToggle" role="button">
+                    <i class="fs-4 fa-solid fa-pen-to-square text-primary"></i>
+                </a>
+            </div>
+            <ul class="list-group list-group-flush">
+            {{> product-supplier-details product.supplier}}
+            </ul>
+        </div>
+    {{/if}}
+
+    {{#if id}}
+        {{>selected-category category}}
+    {{/if}}
+
+    </div>
+    <div class="col-12 col-lg-8 d-flex justify-content-center mb-3">
+      <div class="card border w-100">
+        <div class="card-header position-relative">
+          {{#if isCategory}}
+            <h3>Products</h3>
+            {{else}}
+            <h3>Stock Details</h3>
+            {{/if}}
+        </div>
+        <div class="card-body overflow-scroll">
+          <table class="table table-striped">
+            <thead>
+              {{#if isCategory}}
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Unit</th>
+                <th scope="col">Inventory</th>
+              </tr>
+                {{else}}
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Slot</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Putaway by</th>
+                    <th class="text-center" scope="col">Edit/Delete</th>
+                </tr>
+                {{/if}}
+            </thead>
+            <tbody id="myTable">
+                {{#if isCategory}}
+                    {{#each products as |product|}}
+                        {{> product-details product=product index=@index}}
+                    {{/each}}
+                {{else}}
+                    {{#each product.locations as |stock|}}
+                        {{> stock-details stock=stock index=@index}}
+                    {{/each}}
+                    {{>add-stock-modal user_id=user_id}}
+                    <a class="category position-absolute" data-bs-toggle="modal" href="#addStockModalToggle" role="button">
+                    <i class="fs-2 fa-solid fa-circle-plus"></i>
+                </a>
+                {{/if}}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{#if isProduct}}
+    <script src="/javascript/product.js"></script>
+{{/if}}
+
+{{#if id}}
+    <script src="/javascript/dashboard-category.js"></script>
+{{/if}}
+
+<script src="/javascript/dashboard.js"></script>
