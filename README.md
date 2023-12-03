@@ -2,7 +2,7 @@
 ![badge](https://img.shields.io/badge/license-MIT-brightgreen)  
 
 ## Description
-This Inventory Management System application will allow a company with large amount of products to manage their inventory. It will allow employees to add, update, delete and view Categories, Supplier, Products and Inventory. In the main dashboard, it will display all categories with all product and each will have a button to view inventory. In the Product section, it will display the product information with total quantity in stock and total inventory value. Also it will display the supplier info, stock locations and quantity for the selected product.
+This Inventory Management System application will allow a company with large amount of products to manage their inventory(fun fact: iwas insipired by my mom). It will allow employees to add, update, delete and view Categories, Supplier, Products and Inventory. In the main dashboard, it will display all categories with all product and each will have a button to view inventory. In the Product section, it will display the product information with total quantity in stock and total inventory value. Also it will display the supplier info, stock locations and quantity for the selected product.
 
 This application was built using MVC architecture. The front end was built using HTML5, CSS3, Bootstrap and Javascipt and the back end was built using NodeJS, Express and Handlebars. The information is stored in MySQL database and the data is encrypted using bcrypt.
 
@@ -39,14 +39,10 @@ This application was built using MVC architecture. The front end was built using
 ## Screenshots
 Main Page:
 ![screenshot](/public/images/main.png)
-Inventory Dashboard:
-![screenshot](/public/images/dashboard.png)
-Product Page:
-![screenshot](/public/images/product.png)
 
 ## Instalation
 ```
-git clone git@github.com:jimenezraul/IMS.git
+git@github.com:Eddy-dashner/east-start-shoes-ims.git
 cd IMS
 npm install
 ```
@@ -82,20 +78,17 @@ GET /api/users
 GET, PUT, DELETE /api/users/:id
 ```
 
-## License
-![badge](https://img.shields.io/badge/license-MIT-brightgreen)   
+
 This application is covered by the MIT license.  
 [MIT License](https://opensource.org/licenses/MIT) 
 
 ## Deployment
-Application deployed on Heroku  
-[Live Demo](https://ims-inventory-s.herokuapp.com/)
+Application deployed on Netlify  
+[Live Demo](https://east-start-ims.netlify.app/)
 
 ## Contributing
-Raul [Github](https://github.com/jimenezraul)  
-Michelle [Github](https://github.com/michelle-aguirre)  
-Olga [Github](https://github.com/obrailovska)
+Eddy [Github](https://github.com/Eddy-dashner)  
 
 ## Questions
 Contact me by email
-Email: [jimenezraul1981@gmail.com](mailto:jimenezraul1981@gmail.com)
+Email: [eddynzobarinda910@gmail.com](mailto:eddynzobarinda910@gmail.com)
